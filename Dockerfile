@@ -25,7 +25,8 @@ RUN set -eux; \
     	service apache2 restart
 
 COPY httpd-foreground /usr/bin/
-RUN chmod 755 /usr/bin/httpd-foreground
+RUN sed -i -e 's/\r$//' /usr/bin/httpd-foreground \
+    && chmod 755 /usr/bin/httpd-foreground
 
 EXPOSE 80
 ENTRYPOINT ["/usr/bin/httpd-foreground"]
