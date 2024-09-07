@@ -28,4 +28,4 @@ COPY httpd-foreground /usr/bin/
 RUN chmod 755 /usr/bin/httpd-foreground
 
 EXPOSE 80
-CMD ["/usr/bin/httpd-foreground"]
+ENTRYPOINT ["/usr/bin/httpd-foreground"]
